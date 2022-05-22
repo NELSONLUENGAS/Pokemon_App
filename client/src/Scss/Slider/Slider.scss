@@ -1,0 +1,460 @@
+#slider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 70vh;
+    user-select: none;
+    perspective: 2000px;
+    position: relative;
+    margin: auto;
+    // transform-style: preserve-3d;
+    
+    input{
+        position: relative;
+        top: 33vh;
+        z-index: 2;
+        cursor: pointer;
+        display: none;
+    }
+    overflow: hidden;
+    label{
+        position: absolute;
+        left: calc(40vw - 2.5vw);
+        top: 5vh;
+        width: 25vw;
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 500ms ease;
+        img{
+            height: 70%;
+        }
+        span{
+            position: absolute;
+            top: 5vh;
+            font-size: 6vh;
+            font-weight: bold;
+            left: 20%;
+            color: white;
+            text-transform: uppercase;
+            text-shadow: 0.2vh 0.5vh 0.5vh  #000, 0.5vh 0.5vh 0.8vh #fff;
+        }
+    }
+    #slide1{
+        // background-color: crimson;
+        animation: slide1 20s linear infinite;
+        transition: all 500ms ease;
+        span{
+            animation: slide2 20s linear infinite;
+        }
+    }
+    
+    #slide3{
+        // background-color: rgb(20, 80, 220);
+        animation: slide3 20s linear infinite;
+        transition: all 500ms ease;
+        span{
+            animation: slide4 20s linear infinite;
+        }
+    }
+    
+    #slide5{
+        // background-color: rgb(220, 20, 147);
+        animation: slide5 20s linear infinite;
+        transition: all 500ms ease;
+        span{
+            animation: slide6 20s linear infinite;
+        }
+    }
+    
+    #slide7{
+        // background-color: rgb(20, 220, 67);
+        animation: slide7 20s linear infinite;
+        transition: all 500ms ease;
+        span{
+            animation: slide8 20s linear infinite;
+        }
+    }
+
+    #slide9{
+        // background-color: rgb(210, 220, 20);
+        animation: slide9 20s linear infinite;
+        transition: all 500ms ease;
+        span{
+            animation: slide0 20s linear infinite;
+        }
+    }
+
+
+    /*--Animation---*/
+    @keyframes slide1{
+        0%{
+            transform: translate3d(0vw,0,0vh) scale(1.5);
+            z-index: 5;
+        }
+        14%{
+            transform: translate3d(0vw,0,0vh) scale(1.5);
+            z-index: 5;
+        }
+
+        17%{
+            transform: translate3d(30vw,0vh,-20vh);
+            z-index: 4;
+        }
+        31%{
+            transform: translate3d(30vw,0vh,-20vh);
+            z-index: 4;
+        }
+
+        34%{
+            transform: translate3d(55vw,0vh,-40vh);
+            z-index: 3;
+        }
+        48%{
+            transform: translate3d(55vw,0vh,-40vh);
+            z-index: 3;
+        }
+
+        51%{
+            transform: translate3d(-55vw, 0vh,-40vh);
+            z-index: 3;
+        }
+        65%{
+            transform: translate3d(-55vw, 0vh,-40vh);
+            z-index: 3;
+        }
+
+        68%{
+            transform: translate3d(-30vw, 0vh,-20vh);
+            z-index: 4;
+        }
+        82%{
+            transform: translate3d(-30vw, 0vh,-20vh);
+            z-index: 4;
+        }
+
+        85%{
+            transform: translate3d(0vw,0,0vh) scale(1.5);
+            z-index: 5;
+        }
+        100%{
+            transform: translate3d(0vw,0,0vh) scale(1.5);
+            z-index: 5;
+        }
+    }
+    @keyframes slide2{
+        0%{
+            visibility: visible;
+        }
+
+        14%{
+            visibility: hidden; 
+        }
+        85%{
+            visibility: hidden;
+        }
+
+        100%{
+            visibility: visible;
+        }
+    }
+    @keyframes slide3{
+        0%{
+            transform: translate3d(30vw,0vh,-20vh);
+            z-index: 4;
+        }
+        14%{
+            transform: translate3d(30vw,0vh,-20vh);
+            z-index: 4;
+        }
+
+        17%{
+            transform: translate3d(55vw,0vh,-40vh);
+            z-index: 3;
+        }
+        31%{
+            transform: translate3d(55vw,0vh,-40vh);
+            z-index: 3;
+        }
+
+        34%{
+            transform: translate3d(-55vw, 0vh,-40vh);
+            z-index: 3;
+        }
+        48%{
+            transform: translate3d(-55vw, 0vh,-40vh);
+            z-index: 3;
+        }
+
+        51%{
+            transform: translate3d(-30vw, 0vh,-20vh);
+            z-index: 4;
+        }
+        65%{
+            transform: translate3d(-30vw, 0vh,-20vh);
+            z-index: 4;
+        }
+
+        68%{
+            transform: translate3d(0vw,0,0vh) scale(1.5);
+            z-index: 5;
+        }
+        82%{
+            transform: translate3d(0vw,0,0vh) scale(1.5);
+            z-index: 5;
+        }
+
+        85%{
+            transform: translate3d(30vw,0vh,-20vh);
+            z-index: 4;
+        }
+        100%{
+            transform: translate3d(30vw,0vh,-20vh);
+            z-index: 4;
+        }
+    }
+    @keyframes slide4{
+        0%{
+            visibility:hidden;
+        }
+        65%{
+            visibility: hidden; 
+        }
+
+        68%{
+            visibility: visible;
+        }
+
+        82%{
+            visibility: hidden;
+        }
+        100%{
+            visibility: hidden;
+        }
+    }
+    @keyframes slide5{
+        0%{
+            transform: translate3d(-30vw,0vh,-20vh);
+            z-index: 4;
+        }
+        14%{
+            transform: translate3d(-30vw,0vh,-20vh);
+            z-index: 4;
+        }
+
+        17%{
+            transform: translate3d(0vw,0,0vh) scale(1.5);
+            z-index: 5;
+        }
+        31%{
+            transform: translate3d(0vw,0,0vh) scale(1.5);
+            z-index: 5;
+        }
+
+        34%{
+            transform: translate3d(30vw,0vh,-20vh);
+            z-index: 4;
+        }
+        48%{
+            transform: translate3d(30vw,0vh,-20vh);
+            z-index: 4;
+        }
+
+        51%{
+            transform: translate3d(55vw,0vh,-40vh);
+            z-index: 3;
+        }
+        65%{
+            transform: translate3d(55vw,0vh,-40vh);
+            z-index: 3;
+        }
+
+        68%{
+            transform: translate3d(-55vw,0vh,-40vh);
+            z-index: 3;
+        }
+        82%{
+            transform: translate3d(-55vw,0vh,-40vh);
+            z-index: 3;
+        }
+
+        85%{
+            transform: translate3d(-30vw,0vh,-20vh);
+            z-index: 4;
+        }
+        100%{
+            transform: translate3d(-30vw,0vh,-20vh);
+            z-index: 4;
+        }
+    }
+    @keyframes slide6{
+        0%{
+            visibility: hidden;
+        }
+        14%{
+            visibility: hidden; 
+        }
+
+        17%{
+            visibility: visible;;
+        }
+
+        31%{
+            visibility: hidden;
+        }
+        100%{
+            visibility: hidden;
+        }
+    }
+    @keyframes slide7{
+        0%{
+            transform: translate3d(55vw,0vh,-40vh);
+            z-index: 3;
+        }
+        14%{
+            transform: translate3d(55vw,0vh,-40vh);
+            z-index: 3;
+        }
+
+        17%{
+            transform: translate3d(-55vw, 0vh,-40vh);
+            z-index: 3;
+        }
+        31%{
+            transform: translate3d(-55vw, 0vh,-40vh);
+            z-index: 3;
+        }
+
+        34%{
+            transform: translate3d(-30vw, 0vh,-20vh);
+            z-index: 4;
+        }
+        48%{
+            transform: translate3d(-30vw, 0vh,-20vh);
+            z-index: 4;
+        }
+
+        51%{
+            transform: translate3d(0vw,0,0vh) scale(1.5);
+            z-index: 5;
+        }
+        65%{
+            transform: translate3d(0vw,0,0vh) scale(1.5);
+            z-index: 5;
+        }
+
+        68%{
+            transform: translate3d(30vw,0vh,-20vh);
+            z-index: 4;
+        }
+        82%{
+            transform: translate3d(30vw,0vh,-20vh);
+            z-index: 4;
+        }
+
+        85%{
+            transform: translate3d(55vw,0vh,-40vh);
+            z-index: 3;
+        }
+        100%{
+            transform: translate3d(55vw,0vh,-40vh);
+            z-index: 3;
+        }
+    }
+    @keyframes slide8{
+        0%{
+            visibility: hidden;
+        }
+        48%{
+            visibility: hidden;
+        }
+
+        51%{
+            visibility: visible;
+        }
+
+        65%{
+            visibility: hidden;
+        }
+        100%{
+            visibility: hidden;
+        }
+    }
+    @keyframes slide9{
+        0%{
+            transform: translate3d(-55vw,0vh,-40vh);
+            z-index: 3;
+        }
+        14%{
+            transform: translate3d(-55vw,0vh,-40vh);
+            z-index: 3;
+        }
+
+        17%{
+            transform: translate3d(-30vw, 0vh,-20vh);
+            z-index: 4;
+        }
+        31%{
+            transform: translate3d(-30vw, 0vh,-20vh);
+            z-index: 4;
+        }
+
+        34%{
+            transform: translate3d(0vw,0,0vh) scale(1.5);
+            z-index: 5;
+        }
+        48%{
+            transform: translate3d(0vw,0,0vh) scale(1.5);
+            z-index: 5;
+        }
+
+        51%{
+            transform: translate3d(30vw,0vh,-20vh);
+            z-index: 4;
+        }
+        65%{
+            transform: translate3d(30vw,0vh,-20vh);
+            z-index: 4;
+        }
+
+        68%{
+            transform: translate3d(55vw,0vh,-40vh);
+            z-index: 3;
+        }
+        82%{
+            transform: translate3d(55vw,0vh,-40vh);
+            z-index: 3;
+        }
+
+        85%{
+            transform: translate3d(-55vw,0vh,-40vh);
+            z-index: 3;
+        }
+        100%{
+            transform: translate3d(-55vw,0vh,-40vh);
+            z-index: 3;
+        }
+    }
+    @keyframes slide0{
+        0%{
+            visibility: hidden;
+        }
+        31%{
+            visibility: hidden;
+        }
+
+        34%{
+            visibility: visible;
+        }
+
+        48%{
+            visibility: hidden;
+        }
+        100%{
+            visibility: hidden;
+        }
+    }
+    
+}

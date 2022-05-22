@@ -12,7 +12,22 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.octagon{
+  background-color: #61dafb;
+  min-height: 5rem;
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 70% 0, 60% 50%, 40% 50%, 30% 0);
+}
+.octagon2{
+  background-color: #61dafb;
+  min-height: 5rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 100%, 60% 50%, 39% 50%, 30% 100%, 0 100%);
+}
+.octagon3{
+  background-color: #61dafb;
+  min-height: 12rem;
+  margin: 1rem;
+  /* clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 100%, 60% 50%, 39% 50%, 30% 100%, 0 100%); */
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
