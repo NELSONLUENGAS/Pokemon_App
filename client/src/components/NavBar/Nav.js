@@ -3,18 +3,22 @@ import '../../Scss/NavBar/Nav.scss';
 import pokeball from '../../images/pokeball.png';
 import { IoSearchCircle } from "react-icons/io5";
 import { useSelector, useDispatch } from 'react-redux';
+import { reloadPokemon } from '../../Redux/SearchBar/SearchAction';
 import { getPokemons, getPokemonByName, getAbilities, getTypes, reloadPokemons  } from '../../Redux/Pokemon/PokemonAction';
-
+import { getPokemonsByNameFilter } from '../../Redux/SearchBar/SearchAction';
 
 export default function Nav({paginate, updatePages, expandFilter}){
-    const pokemons = useSelector(state => state.PokemonReducer.pokemons)
+    const pokemons = useSelector(state => state.PokemonReducer.pokemons);
+    const pokemonsFilter = useSelector(state => state.SearchReducer.filterCache);
+    console.log(pokemonsFilter, 'soy filterpokemons')
     const dispatch = useDispatch();
     const [ reload, setReload ] = useState(false)
     function handleOnClick(e){
         e.preventDefault();
         dispatch(reloadPokemons());
         paginate(1);
-        setReload(true)
+        dispatch(reloadPokemon());
+        setReload(true);
         setTimeout(()=>{
             setReload(false)
         },800)
@@ -33,18 +37,35 @@ export default function Nav({paginate, updatePages, expandFilter}){
     function handleOnSubmit(e){
         e.preventDefault();
         const { value } =  e.target;
-        dispatch(getPokemonByName(value));
-        paginate(1);
-        updatePages({
-            start1: 1,
-            start2: 2,
-            start3: 3,
-            center1: 4,
-            center2: 5,
-            end1: 6,
-            end2: 7,
-            end3: 8,
-        })
+        if(!pokemonsFilter.length){
+            console.log('estoy en length')
+            dispatch(getPokemonByName(value));
+            paginate(1);
+            updatePages({
+                start1: 1,
+                start2: 2,
+                start3: 3,
+                center1: 4,
+                center2: 5,
+                end1: 6,
+                end2: 7,
+                end3: 8,
+            })
+        }else{
+            console.log('estoy en filtrados por nombre')
+            dispatch(getPokemonsByNameFilter(value))
+            paginate(1);
+            updatePages({
+                start1: 1,
+                start2: 2,
+                start3: 3,
+                center1: 4,
+                center2: 5,
+                end1: 6,
+                end2: 7,
+                end3: 8,
+            })
+        }
     }
 
 
@@ -64,9 +85,7 @@ export default function Nav({paginate, updatePages, expandFilter}){
                 </div>
                 <div className='navPoligon1Element2'>
                     <div >
-                        <label onClick={handleOnClick} 
-                            className={reload ? 'navReload' : pokemons.length? '' : 'navReload'} 
-                        >
+                        <label onClick={handleOnClick} className={reload ? 'navReload' : pokemons.length? '' : 'navReload'} >
                             <img src={pokeball} alt='pokeball'/>
                         </label>
                         <button >

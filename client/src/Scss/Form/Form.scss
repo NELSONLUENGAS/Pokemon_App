@@ -5,10 +5,14 @@
     
     .formSection1{
         grid-column: 1 / 5;
+        position: fixed;
+        width: 100vw;
+        top: 0vh;
+        z-index: 2;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-auto-rows: minmax(4rem, auto);
-        background-image: url(https://i.pinimg.com/originals/77/b6/33/77b633134f73d7b7e5d0c83df1edf863.gif);
+        // background-image: url(https://i.pinimg.com/originals/77/b6/33/77b633134f73d7b7e5d0c83df1edf863.gif);
         .formPoligon1{
             grid-column: 1 / 5;
             box-shadow: inset 0vh 0vh 4vh -1vh  #4f9, inset 0vh 0vh 2.5vh 0vh  #005c7c;
@@ -25,28 +29,20 @@
                 justify-content: center;
                 align-items: center;
                 gap: 1vh;
-                select{
+                button{
+                    cursor: pointer;
                     background-color: transparent;
                     color: #fff;
                     border: none;
                     border-radius: 1vh;
                     font-size: 1vw;
-                    padding: 0.5vh;
+                    padding: 0.9vh;
                     outline: none;
+                    text-transform: uppercase;
                     box-shadow: inset 0vh 0vh 2.5vh 0.5vh  #005c7c;
-                }
-                input{
-                    border: none;
-                    border-radius: 1vh;
-                    font-size: 1vw;
-                    padding: 0.8vh;
-                    outline: none;
-                    border: none;
-                    background-color: transparent;
-                    color: #fff;
-                    box-shadow: inset 0vh 0vh 2.5vh 0.5vh  #005c7c;
-                }::placeholder{
-                    color: #fff;
+                    &:hover{
+                        box-shadow:  0vh 0vh 1vh 0.5vh  #fff;
+                    }
                 }
             }
             .formPoligon1Element2{
@@ -81,105 +77,161 @@
                 justify-content: center;
                 align-items: center;
                 gap: 1vh;
-                input{
+                button{
+                    cursor: pointer;
+                    background-color: transparent;
+                    color: #fff;
                     border: none;
                     border-radius: 1vh;
                     font-size: 1vw;
-                    padding: 0.8vh;
+                    padding: 0.9vh;
                     outline: none;
-                    background-color: transparent;
-                    color: #fff;
+                    text-transform: uppercase;
                     box-shadow: inset 0vh 0vh 2.5vh 0.5vh  #005c7c;
-                }::placeholder{
-                    color: #fff;
+                    &:hover{
+                        box-shadow:  0vh 0vh 1vh 0.5vh  #fff;
+                    }
                 }
             }
         }
     }
     .formSection2{
         grid-column: 1 / 5;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
         box-shadow: inset 0vh 0vh 8vh 0vh #005c7c;
-        height: calc(100vh - 27vh);
+        height: 100vh;
         background-image: linear-gradient( to top right, #1cedae, #c501e2);
         .formSection2El1{
-            display: grid;
-            width: calc(70vw);
-            height: calc(100vh - 27vh);
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: 1fr 1fr 3fr;
-            .formSection2SubEl1{
-                grid-column: 1 / 4;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                position: relative;
-                bottom: calc(-3vh);
-                span{
-                    text-transform: uppercase;
-                    font-size: calc(2.5vw);
-                    font-weight: bold;
-                    color: #fff;
-                    font-weight: 900;
-                    // text-shadow: 1px 2px 15px #000, 1px 1px 10px red;
-                    label{
-                        margin-left: 1rem;
-                    }
-                }
+            grid-column: 1 / 5;
+            display: flex;
+            // padding-top: 8vh;
+            justify-content: center;
+            align-items: center;
+            // background-color: #fff;
+            img{
+                width: 38vw;
             }
-            .formSection2SubEl2{
-                grid-column: 1 / 4;
+        }
+        .formSection2El2{
+            grid-column: 5 / 8;
+            // background-color: #005c7c;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            .formCard{
+                margin-top: 3vh;
+                height: 65vh;
+                width: 60vw;
+                border-radius: 1vw;
+                background-color: rgba(0, 0, 0, 0.92);
+                box-shadow: inset 0vh 0vh 2.5vh 0.5vh  #005c7c;
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
-                grid-auto-rows: auto;
-                position: relative;
-                bottom: calc(-3vh);
-                .formSection2Item1{
-                    grid-column: 1 / 3;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    span{
-                        text-transform: uppercase;
-                        font-size: calc(1.5vw);
-                        display: flex;
-                        flex-direction: column;
-                        text-transform: uppercase;
-                        font-size: calc(1.8vw);
-                        font-weight: bold;
-                        color: #fff;
-                        font-weight: 900;
-                        // text-shadow: 1px 2px 15px #000, 1px 1px 10px red;
-                    }
-                }
-                .formSection2Item2{
-                    grid-column: 3/ 5;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    span{
-                        text-transform: uppercase;
-                        font-size: calc(1.5vw);
-                        display: flex;
-                        flex-direction: column;
-                        text-transform: uppercase;
-                        font-size: calc(1.8vw);
-                        font-weight: bold;
-                        color: #fff;
-                        font-weight: 900;
-                        // text-shadow: 1px 2px 15px #000, 1px 1px 10px #fff;
-                    }
-                }
-                .formSection2Item3{
+                padding: 3vh;
+                padding-top: 0vh;
+                .formCardItem1{
                     grid-column: 1 / 5;
-                    grid-row: 1 / 3;
                     display: flex;
                     justify-content: center;
-                    align-items: center;
-                    img{
-                        height: calc(50vh);
+                    font-size: 2vw;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+                .formCardItem2, .formCardItem3, .formCardItem4,
+                .formCardItem7, .formCardItem8, .formCardItem9, .formCardItem0{
+                    display: flex;
+                    justify-content: center;
+                    font-size: 2.2vh;
+                    div{
+                        font-size: 2vh;
+                    }
+                }
+                .formCardItem5{
+                    grid-column: 1 / 3;
+                    display: flex;
+                    justify-content: center;
+                    font-size: 2.2vh;
+                    div{
+                        font-size: 2vh;
+                    }
+                    span{
+                        span{
+                            position: relative;
+                            button{
+                                cursor: pointer;
+                                height: 2.2vh;
+                                width: 2.2vh;
+                                border-radius: 50%;
+                                font-size: 2.2vh;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                font-weight: bold;
+                                position: absolute;
+                                top: 20%;
+                                right: -2vh;
+                                background-color: #c501e2;
+                            }
+                        }
+                    }
+                    text-transform: capitalize;
+                }
+                .formCardItem6{
+                    grid-column: 3 / 5;
+                    display: flex;
+                    justify-content: center;
+                    font-size: 2.2vh;
+                    div{
+                        font-size: 2vh;
+                    }
+                    span{
+                        span{
+                            position: relative;
+                            button{
+                                cursor: pointer;
+                                height: 2.2vh;
+                                width: 2.2vh;
+                                border-radius: 50%;
+                                font-size: 2.2vh;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                font-weight: bold;
+                                position: absolute;
+                                top: 20%;
+                                right: -2vh;
+                                background-color: #c501e2;
+                            }
+                        }
+                    }
+                    text-transform: capitalize;
+                }
+                div{
+                    color: #fff;
+                    display: flex;
+                    justify-content: left;
+                    span{
+                        display: flex;
+                        flex-direction: column;
+                        // background-color: #005c7c;
+                        div{
+                            font-size: 0.8vw;
+                            font-weight: bold;
+                            font-style: oblique;
+                            text-transform: uppercase;
+                            display: flex;
+                            align-items: center;
+                            // background-color: #c501e2;
+                        }
+                        button{
+                            background-color: transparent;
+                            border: none;
+                            svg{
+                                font-size: 4vh;
+                                color: #fff;
+                            }
+                        }
                     }
                 }
             }
@@ -187,7 +239,11 @@
     }
     .formSection3{
         grid-column: 1 / 5;
-        background-image: url(https://i.pinimg.com/originals/77/b6/33/77b633134f73d7b7e5d0c83df1edf863.gif);
+        position: fixed;
+        width: 100vw;
+        z-index: 2;
+        bottom: 0vh;
+        // background-image: url(https://i.pinimg.com/originals/77/b6/33/77b633134f73d7b7e5d0c83df1edf863.gif);
         .formPoligon2{
             box-shadow: inset 0vh 0vh 4vh -1vh  #4f9, inset 0vh 0vh 2.5vh 0vh  #005c7c;;
             background-image: url(https://c.tenor.com/6ZUs587t-_YAAAAC/blue-heart-black.gif);
@@ -249,8 +305,9 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                gap: 1vw;
                 input{
-                    width: 12vw;
+                    width: 10vw;
                     border: none;
                     border-radius: 1vh;
                     font-size: 1vw;

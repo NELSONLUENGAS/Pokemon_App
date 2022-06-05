@@ -3,7 +3,6 @@ import { Routes, Route} from 'react-router-dom';
 import Form from './components/Form/Form';
 import Home from './components/Home/Home';
 import Landing from './components/Landing/Landing';
-import Filters from './components/Filters/Filters';
 
 
 function App() {

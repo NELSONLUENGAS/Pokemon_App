@@ -1,0 +1,29 @@
+.statsContainer{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    grid-auto-rows: auto;
+    width: 26vw;
+    padding: 1vw;
+    background-color: rgba(0, 0, 0, 0.886);
+    box-shadow: inset 0vh 0vh 5vh 0.2vh  #005c7c;
+    animation: fadeInUp 0.5s ease ;
+    animation-fill-mode: both;
+    input{
+        margin-bottom: 1vw;
+        border: none;
+        border-radius: 1vh;
+        font-size: 1.1vw;
+        padding: 1vh;
+        outline: none;
+        background-color: transparent;
+        color: #fff;
+        width: 83%;
+        box-shadow: inset 0vh 0vh 2.5vh 0.5vh  #005c7c;
+        &:focus{
+            box-shadow:  0vh 0vh 1vh 0.5vh  #fff;
+        }
+    }::placeholder{
+        color: #fff;
+        font-style: italic;
+    }
+}

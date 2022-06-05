@@ -1,37 +1,33 @@
-import { 
-    FILTER_POKEMONS_BY_TYPE, // TYPE - ABILITY
-    FILTER_POKEMONS_BY_ABILITY, // TYPE - ABILITY
-    FILTER_POKEMONS_BY_STATS, // hp-attack-speed-defense-
-    ORDER_POKEMONS_BY, // ASC - DESC
-    FILTER_POKEMONS_BY_STATE
-} from './SearchAction';
+import { FILTER_AND_ORDER_POKEMONS_BY, RELOAD_POKEMON, GET_POKEMONS_BY_NAME_FILTER } from './SearchAction';
 
 const initialState = {
     filterPokemons: [],
+    filterCache: []
 }
 export const SearchReducer = (state = initialState, {payload, type}) =>{
     switch(type){
-        case FILTER_POKEMONS_BY_ABILITY://ability-Type
+        case FILTER_AND_ORDER_POKEMONS_BY:
             return {
                 ...state,
-                filterPokemons: payload
+                filterPokemons: [payload],
+                filterCache: [payload]
             }
-        case FILTER_POKEMONS_BY_TYPE://-Type
+        case GET_POKEMONS_BY_NAME_FILTER:
+            if(payload){
+                const pokemonsFilter = state.filterCache[0]?.data.filter(pokemon => pokemon.name.includes(payload))
+                console.log(payload)
+                console.log([{data: [pokemonsFilter]}],'soy reducer')
             return {
                 ...state,
-                filterPokemons: payload
+                filterPokemons: pokemonsFilter.length ? [{msg: 'Search succesfuly', data: pokemonsFilter}] : [{msg: 'Sorry, name does not exist', data: pokemonsFilter}]
             }
-        case ORDER_POKEMONS_BY://asc-desc
+        }else{
             return {
                 ...state,
-                filterPokemons: payload
+                filterPokemons: state.filterCache
             }
-        case FILTER_POKEMONS_BY_STATS: 
-            return {
-                ...state,
-                filterPokemons: payload
-            }
-        case FILTER_POKEMONS_BY_STATE: 
+        }
+        case RELOAD_POKEMON:
             return {
                 ...state,
                 filterPokemons: payload

@@ -1,64 +1,35 @@
 import axios from 'axios';
-
-export const FILTER_POKEMONS_BY_TYPE = 'FILTER_POKEMOS_BY_TYPE';
-export const FILTER_POKEMONS_BY_ABILITY = 'FILTER_POKEMOS_BY_ABILITY';
-export const ORDER_POKEMONS_BY = 'ORDER_POKEMOS_BY';
-export const FILTER_POKEMONS_BY_STATS = 'FILTER_POKEMONS_BY_STATS';
-export const FILTER_POKEMONS_BY_STATE = 'FILTER_POKEMONS_BY_STATE';
+export const FILTER_AND_ORDER_POKEMONS_BY = 'FILTER_AND_ORDER_POKEMONS_BY'
+export const RELOAD_POKEMON = 'RELOAD_POKEMON';
+export const GET_POKEMONS_BY_NAME_FILTER = 'GET_POKEMONS_BY_NAME_FILTER';
 
 
-
-export function filterPokemonsByType(type, order){
+export function filterAndOrderPokemonsBy(props){
+    const { ability, type, order, stat, greaterThan, lessThan, state} = props;
     return async function(dispatch){
-        const pokemons = await axios(`https://app-pokemo.herokuapp.com/type/filter?type=${type}&order=${order}`);
-        const { data } = pokemons;
+        const { data } = await axios(`https://app-pokemo.herokuapp.com/pokemons/filter/by?ability=${ability}&type=${type}&order=${order}&stat=${stat}&number1=${greaterThan}&number2=${lessThan}&state=${state}`);
+        console.log(data)
         return dispatch({
-            type: FILTER_POKEMONS_BY_TYPE,
+            type: FILTER_AND_ORDER_POKEMONS_BY,
             payload: data
         })
     }
 }
 
-export function filterPokemonsByAbility(ability, order){
-    return async function(dispatch){
-        const pokemons = await axios(`https://app-pokemo.herokuapp.com/ability/filter?ability=${ability}&order=${order}`);
-        const { data } = pokemons;
+export function getPokemonsByNameFilter(name){
+    return function (dispatch){
         return dispatch({
-            type: FILTER_POKEMONS_BY_ABILITY,
-            payload: data
+            type: GET_POKEMONS_BY_NAME_FILTER,
+            payload: name
         })
     }
 }
 
-export function orderPokemonsBy(order){
-    return async function(dispatch){
-        const pokemons = await axios(`https://app-pokemo.herokuapp.com/pokemons/generate/order?order=${order}`);
-        const { data } = pokemons;
+export function reloadPokemon(){
+    return function(dispatch){
         return dispatch({
-            type: ORDER_POKEMONS_BY,
-            payload: data
-        })
-    }
-}
-
-export function filterPokemonsByStats(stat, number1, number2){
-    return async function(dispatch){
-        const pokemons = await axios(`https://app-pokemo.herokuapp.com/pokemons/filter/stats?stat=${stat}&number1=${number1}&number2=${number2}`);
-        const { data } = pokemons;
-        return dispatch({
-            type: FILTER_POKEMONS_BY_STATS,
-            payload: data
-        })
-    }
-}
-
-export function filterPokemonsByState(state){
-    return async function(dispatch){
-        const pokemons = await axios(`https://app-pokemo.herokuapp.com//pokemons/filter/state?state=${state}`)
-        const { data } = pokemons;
-        return dispatch({
-            type: FILTER_POKEMONS_BY_STATE,
-            payload: data
+            type: RELOAD_POKEMON,
+            payload: []
         })
     }
 }

@@ -17,10 +17,14 @@ export default function Home(){
     const startNumber = endNumber - limit;
     const pokemons = useSelector(state => state.PokemonReducer.pokemons);
     const pokemonsByName = useSelector(state => state.PokemonReducer.ByName);
+    const filterPokemonsBy = useSelector(state => state.SearchReducer.filterPokemons);
+    console.log(filterPokemonsBy,'soy filterby')
     const { data } = pokemons?.length && pokemons[0];
     const pokemonsSearch = pokemonsByName?.length && pokemonsByName[0].data;
-    const pokemonsSearchMsg = pokemonsByName?.length && pokemonsByName[0].msg;
-    // console.log(pokemonsSearch, ': soySearch')
+    const pokemonsFilter = filterPokemonsBy?.length && filterPokemonsBy[0].data;
+    console.log(pokemonsFilter, 'soy ultimo filtado')
+    const pokemonsSearchMsg = pokemonsByName?.length ? pokemonsByName[0].msg : filterPokemonsBy?.length && filterPokemonsBy[0].msg;
+    
     useEffect(()=>{
         dispatch(getPokemons());
         dispatch(getAbilities());
@@ -30,8 +34,8 @@ export default function Home(){
 
     const pokemonsPaginateByName = pokemonsSearch?.length && pokemonsSearch.slice(startNumber, endNumber);
     const pokemonsPaginate = data?.length && data.slice(startNumber, endNumber);
-    // console.log(pokemonsPaginateByName, 'soy ByName');
-    // console.log(pokemonsPaginate, 'soy paginate')
+    const pokemonsFilterBy = pokemonsFilter?.length && pokemonsFilter.slice(startNumber, endNumber);
+
     function paginate(number){
         setPage(number)
     }
@@ -67,20 +71,36 @@ export default function Home(){
                     expandFilter={expandFilter}
                 />
                 <div className='homeElement1Filters'>
-                    {filter && <Filters closeFilter={closeFilter} />}
+                    {filter && <Filters 
+                        closeFilter={closeFilter} 
+                        paginate={paginate}
+                        updatePages={updatePages}
+                    />}
                 </div>
             </div>
             <div className='homeElement2'>
                 <Pokemons
                     message={pokemonsSearchMsg}
-                    data={pokemonsPaginateByName?.length ? pokemonsPaginateByName  : pokemonsPaginate }
+                    data={pokemonsFilterBy?.length ? pokemonsFilterBy : pokemonsPaginateByName?.length ? pokemonsPaginateByName  : pokemonsPaginate }
                 />
             </div>
             <div className='homeElement3'>
                 <Paginate
                     page={page}
                     paginate={paginate}
-                    size={pokemonsSearchMsg === 'Sorry, name does not exist' ? null : pokemonsSearch?.length ? pokemonsSearch.length : data?.length}
+                    size={pokemonsSearchMsg === 'Sorry, name does not exist' 
+                    ? 
+                        null 
+                    : 
+                        pokemonsFilter?.length 
+                        ? 
+                            pokemonsFilter?.length 
+                        : 
+                            pokemonsSearch?.length 
+                            ? 
+                                pokemonsSearch.length 
+                            : 
+                                data?.length}
                     limit={limit}
                     updatePages={updatePages}
                     pages={pages}
